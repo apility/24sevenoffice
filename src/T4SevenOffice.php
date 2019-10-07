@@ -55,19 +55,14 @@ class T4SevenOffice {
       return $auth;
     }
     
-    try {
-      $login = $auth->Login([
-        'credential' => [
-          'Username' => self::$username,
-          'Password' => md5(mb_convert_encoding(self::$password, 'utf-16le', 'utf-8')),
-          'ApplicationId' => self::$applicationId,
-          'IdentityId' => self::$identityId ?? '00000000-0000-0000-0000-000000000000'
-        ]
-      ]);
-      
-    } catch (\SoapFault $fault) {
-      die('Exception: ' . $fault->getMessage());
-    }
+    $login = $auth->Login([
+      'credential' => [
+        'Username' => self::$username,
+        'Password' => md5(mb_convert_encoding(self::$password, 'utf-16le', 'utf-8')),
+        'ApplicationId' => self::$applicationId,
+        'IdentityId' => self::$identityId ?? '00000000-0000-0000-0000-000000000000'
+      ]
+    ]);
     
     self::$sessionId = $login->LoginResult;
     
