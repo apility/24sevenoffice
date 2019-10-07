@@ -1,0 +1,24 @@
+{
+  "name": "apility/24sevenoffice",
+  "description": "A simple and independent connector for 24SevenOffice",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/apility/24sevenoffice",
+  "authors": [
+    {
+      "name": "Tormund Gerhardsen",
+      "email": "tormund@apility.no",
+      "homepage": "https://github.com/tormundgerhardsen",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/apility/24sevenoffice/issues",
+    "source": "https://github.com/apility/24sevenoffice"
+  },
+  "autoload": {
+    "psr-4": {
+      "Apility\\T4SevenOffice\\": "src/"
+    }
+  }
+}
