@@ -80,6 +80,15 @@ class T4SevenOffice {
   
   
   /**
+   * @return \SoapClient
+   */
+  public static function productService() {
+    
+    return self::newSoapClient('Logistics/Product/V001/ProductService.asmx?wsdl');
+  }
+  
+  
+  /**
    * Creates a new SoapClient and set ASP.NET_SessionId cookie if exist
    * @param $url
    * @return \SoapClient
