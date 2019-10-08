@@ -20,5 +20,14 @@
     "psr-4": {
       "Apility\\T4SevenOffice\\": "src/"
     }
+  },
+  "config": {
+    "platform": {
+      "php": "7.0"
+    }
+  },
+  "require": {
+    "php": "^7.0.0",
+    "vlucas/phpdotenv": "^3.6"
   }
 }
