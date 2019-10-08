@@ -4,7 +4,8 @@ namespace Apility\T4SevenOffice;
 
 class T4SevenOffice {
   
-  private static $baseUrl = 'https://api.24sevenoffice.com/';
+  private static $apiUrl = 'https://api.24sevenoffice.com/';
+  private static $webservicesUrl = 'https://webservices.24sevenoffice.com/';
   private static $options = ['trace' => true];
   private static $usePhpSession = false;
   
@@ -66,7 +67,7 @@ class T4SevenOffice {
    */
   public static function authenticateService() {
     
-    $auth = self::newSoapClient('authenticate/v001/authenticate.asmx?wsdl');
+    $auth = self::newSoapClient(self::$apiUrl.'authenticate/v001/authenticate.asmx?wsdl');
     
     if ($auth->HasSession()->HasSessionResult) {
       return $auth;
@@ -99,8 +100,24 @@ class T4SevenOffice {
   /**
    * @return \SoapClient
    */
+  public static function accountService() {
+    return self::newSoapClient(self::$webservicesUrl.'economy/accountV002/Accountservice.asmx?wdsl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function attachmentService() {
+    return self::newSoapClient(self::$webservicesUrl.'Economy/Accounting/Accounting_V001/AttachmentService.asmx?WSDL');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
   public static function productService() {
-    return self::newSoapClient('Logistics/Product/V001/ProductService.asmx?wsdl');
+    return self::newSoapClient(self::$apiUrl.'Logistics/Product/V001/ProductService.asmx?wsdl');
   }
   
   
@@ -111,7 +128,7 @@ class T4SevenOffice {
    */
   public static function newSoapClient($url) {
     
-    $client = new \SoapClient(self::$baseUrl.$url, self::$options);
+    $client = new \SoapClient($url, self::$options);
     
     if (!empty(self::$sessionId)) {
       $client->__setCookie('ASP.NET_SessionId', self::$sessionId);
