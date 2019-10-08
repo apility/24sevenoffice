@@ -57,7 +57,7 @@ class T4SevenOffice {
    * @return string $sessionId
    */
   public static function getSessionId() {
-    return self::$sessionId;
+    return $_SESSION['T4SevenOffice_sessionId'] ?? self::$sessionId;
   }
   
   
