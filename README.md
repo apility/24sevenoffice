@@ -1,5 +1,5 @@
-# 24sevenoffice
-A simple and independent webservice connector for the ERP system [24SevenOffice](https://24sevenoffice.com).
+# 24SevenOffice WebService PHP
+A simple and independent PHP webservice connector for the ERP system [24SevenOffice](https://24sevenoffice.com).
 
 ## Full documentation
 Se the full documentation for all services at [developer.24sevenoffice.com](https://developer.24sevenoffice.com/docs/).
