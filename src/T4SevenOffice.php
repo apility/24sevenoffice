@@ -45,6 +45,22 @@ class T4SevenOffice {
   
   
   /**
+   * @param string $sessionId
+   */
+  public static function setSessionId($sessionId) {
+    self::$sessionId = $sessionId;
+  }
+  
+  
+  /**
+   * @return string $sessionId
+   */
+  public static function getSessionId() {
+    return self::$sessionId;
+  }
+  
+  
+  /**
    * Logs in using the authenticateService, validates session and return authenticateService if valid login
    */
   public static function authenticateService() {
