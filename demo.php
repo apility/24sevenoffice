@@ -23,10 +23,15 @@ T4SevenOffice::setUsePhpSession(true);
 
 try {
   
-  T4SevenOffice::authenticateService();
+  $authService = T4SevenOffice::authenticateService();
   
   var_dump(T4SevenOffice::getSessionId());
   
+  $identities = $authService->GetIdentities();
+  
+  var_dump($identities);
+  
+  /*
   $companyService = T4SevenOffice::companyService();
   
   $companies = $companyService->GetCompanies([
@@ -35,7 +40,7 @@ try {
   ]);
   
   var_dump($companies);
-  
+  */
   
 } catch (Exception $e) {
   die('Exception: '.$e->getMessage());
