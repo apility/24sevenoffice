@@ -62,6 +62,7 @@ class T4SevenOffice {
   
   /**
    * Logs in using the authenticateService, validates session and return authenticateService if valid login
+   * @return \SoapClient
    */
   public static function authenticateService() {
     
@@ -99,14 +100,13 @@ class T4SevenOffice {
    * @return \SoapClient
    */
   public static function productService() {
-    
     return self::newSoapClient('Logistics/Product/V001/ProductService.asmx?wsdl');
   }
   
   
   /**
    * Creates a new SoapClient and set ASP.NET_SessionId cookie if exist
-   * @param $url
+   * @param string $url
    * @return \SoapClient
    */
   public static function newSoapClient($url) {
