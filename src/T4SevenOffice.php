@@ -101,7 +101,7 @@ class T4SevenOffice {
    * @return \SoapClient
    */
   public static function accountService() {
-    return self::newSoapClient(self::$webservicesUrl.'economy/accountV002/Accountservice.asmx?wdsl');
+    return self::newSoapClient(self::$webservicesUrl.'economy/accountV002/Accountservice.asmx?wsdl');
   }
   
   
@@ -109,7 +109,79 @@ class T4SevenOffice {
    * @return \SoapClient
    */
   public static function attachmentService() {
-    return self::newSoapClient(self::$webservicesUrl.'Economy/Accounting/Accounting_V001/AttachmentService.asmx?WSDL');
+    return self::newSoapClient(self::$webservicesUrl.'Economy/Accounting/Accounting_V001/AttachmentService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function budgetService() {
+    return self::newSoapClient(self::$apiUrl.'Economy/Budget/V001/BudgetService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function clientService() {
+    return self::newSoapClient(self::$apiUrl.'Client/V001/ClientService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function companyService() {
+    return self::newSoapClient(self::$apiUrl.'CRM/Company/V001/CompanyService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function fileService() {
+    return self::newSoapClient(self::$webservicesUrl.'file/V001/FileService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function fileInfoService() {
+    return self::newSoapClient(self::$webservicesUrl.'file/V001/FileInfoService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function invitationService() {
+    return self::newSoapClient(self::$webservicesUrl.'Invitation/Invitation_V001/InvitationService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function invoiceService() {
+    return self::newSoapClient(self::$apiUrl.'Economy/InvoiceOrder/V001/InvoiceService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function paymentService() {
+    return self::newSoapClient(self::$apiUrl.'Economy/InvoiceOrder/V001/PaymentService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function personService() {
+    return self::newSoapClient(self::$webservicesUrl.'CRM/Contact/PersonService.asmx?wsdl');
   }
   
   
@@ -118,6 +190,46 @@ class T4SevenOffice {
    */
   public static function productService() {
     return self::newSoapClient(self::$apiUrl.'Logistics/Product/V001/ProductService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function projectService() {
+    return self::newSoapClient(self::$webservicesUrl.'Project/V001/ProjectService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function salesOppService() {
+    return self::newSoapClient(self::$webservicesUrl.'SalesOpp/V001/SalesOppService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function templateService() {
+    return self::newSoapClient(self::$apiUrl.'CRM/Template/V001/TemplateService.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function timeService() {
+    return self::newSoapClient(self::$webservicesUrl.'timesheet/v001/timeservice.asmx?wsdl');
+  }
+  
+  
+  /**
+   * @return \SoapClient
+   */
+  public static function transactionService() {
+    return self::newSoapClient(self::$apiUrl.'Economy/Accounting/V001/TransactionService.asmx?wsdl');
   }
   
   
