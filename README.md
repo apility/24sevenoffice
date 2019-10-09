@@ -29,9 +29,7 @@ T4SevenOffice::setUsePhpSession(true);
 
 try {
   
-  if (!T4SevenOffice::authenticateService()) {
-    die('Could not authenticate with 24SevenOffice');
-  }
+  T4SevenOffice::authenticateService();
   
   $companyService = T4SevenOffice::companyService();
   
@@ -43,7 +41,7 @@ try {
   var_dump($companies);
   
 } catch (Exception $e) {
-  die('Exception: '.$e->getMessage());
+  die('24SevenOffice Exception: '.$e->getMessage());
 }
 ```
 

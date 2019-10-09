@@ -64,6 +64,7 @@ class T4SevenOffice {
   /**
    * Logs in using the authenticateService, validates session and return authenticateService if valid login
    * @return \SoapClient
+   * @throws \Exception
    */
   public static function authenticateService() {
     
@@ -95,7 +96,7 @@ class T4SevenOffice {
       }
     }
     
-    return false;
+    throw new \Exception('Could not authenticate with 24SevenOffice');
   }
   
   
