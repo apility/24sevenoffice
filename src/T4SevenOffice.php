@@ -39,7 +39,7 @@ class T4SevenOffice {
     
     self::$usePhpSession = $value;
     
-    if ($value) {
+    if ($value && session_status() == PHP_SESSION_NONE) {
       session_start();
     }
   }
@@ -64,6 +64,7 @@ class T4SevenOffice {
   /**
    * Logs in using the authenticateService, validates session and return authenticateService if valid login
    * @return \SoapClient
+   * @throws \Exception
    */
   public static function authenticateService() {
     
@@ -76,7 +77,7 @@ class T4SevenOffice {
     $login = $auth->Login([
       'credential' => [
         'Username' => self::$username,
-        'Password' => md5(mb_convert_encoding(self::$password, 'utf-16le', 'utf-8')),
+        'Password' => self::$password,
         'ApplicationId' => self::$applicationId,
         'IdentityId' => self::$identityId ?? '00000000-0000-0000-0000-000000000000'
       ]
@@ -84,16 +85,18 @@ class T4SevenOffice {
     
     self::$sessionId = $login->LoginResult;
     
-    if (self::$usePhpSession) {
-      $_SESSION['T4SevenOffice_sessionId'] = self::$sessionId;
+    if (self::$sessionId) {
+      if (self::$usePhpSession) {
+        $_SESSION['T4SevenOffice_sessionId'] = self::$sessionId;
+      }
+      
+      $auth->__setCookie('ASP.NET_SessionId', self::$sessionId);
+      if ($auth->HasSession()->HasSessionResult) {
+        return $auth;
+      }
     }
     
-    $auth->__setCookie('ASP.NET_SessionId', self::$sessionId);
-    if ($auth->HasSession()->HasSessionResult) {
-      return $auth;
-    }
-    
-    return false;
+    throw new \Exception('Could not authenticate with 24SevenOffice');
   }
   
   

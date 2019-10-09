@@ -41,7 +41,7 @@ try {
   var_dump($companies);
   
 } catch (Exception $e) {
-  die('Exception: '.$e->getMessage());
+  die('24SevenOffice Exception: '.$e->getMessage());
 }
 ```
 

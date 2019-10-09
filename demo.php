@@ -43,5 +43,5 @@ try {
   */
   
 } catch (Exception $e) {
-  die('Exception: '.$e->getMessage());
+  die('24SevenOffice Exception: '.$e->getMessage());
 }
