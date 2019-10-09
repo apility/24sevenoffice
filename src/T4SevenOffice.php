@@ -84,13 +84,15 @@ class T4SevenOffice {
     
     self::$sessionId = $login->LoginResult;
     
-    if (self::$usePhpSession) {
-      $_SESSION['T4SevenOffice_sessionId'] = self::$sessionId;
-    }
-    
-    $auth->__setCookie('ASP.NET_SessionId', self::$sessionId);
-    if ($auth->HasSession()->HasSessionResult) {
-      return $auth;
+    if (self::$sessionId) {
+      if (self::$usePhpSession) {
+        $_SESSION['T4SevenOffice_sessionId'] = self::$sessionId;
+      }
+      
+      $auth->__setCookie('ASP.NET_SessionId', self::$sessionId);
+      if ($auth->HasSession()->HasSessionResult) {
+        return $auth;
+      }
     }
     
     return false;
