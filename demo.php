@@ -23,7 +23,9 @@ T4SevenOffice::setUsePhpSession(true);
 
 try {
   
-  $authService = T4SevenOffice::authenticateService();
+  if (!$authService = T4SevenOffice::authenticateService()) {
+    die('Could not authenticate with 24SevenOffice');
+  }
   
   var_dump(T4SevenOffice::getSessionId());
   
@@ -43,5 +45,5 @@ try {
   */
   
 } catch (Exception $e) {
-  die('Exception: '.$e->getMessage());
+  die('24SevenOffice Exception: '.$e->getMessage());
 }
