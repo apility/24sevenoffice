@@ -39,7 +39,7 @@ class T4SevenOffice {
     
     self::$usePhpSession = $value;
     
-    if ($value) {
+    if ($value && session_status() == PHP_SESSION_NONE) {
       session_start();
     }
   }
