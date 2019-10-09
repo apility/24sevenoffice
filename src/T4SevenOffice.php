@@ -76,7 +76,7 @@ class T4SevenOffice {
     $login = $auth->Login([
       'credential' => [
         'Username' => self::$username,
-        'Password' => md5(mb_convert_encoding(self::$password, 'utf-16le', 'utf-8')),
+        'Password' => self::$password,
         'ApplicationId' => self::$applicationId,
         'IdentityId' => self::$identityId ?? '00000000-0000-0000-0000-000000000000'
       ]
